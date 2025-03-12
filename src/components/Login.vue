@@ -28,7 +28,7 @@
 
           <!-- Submit Button -->
           <v-btn
-            color="primary"
+            :color="randomColor()"
             class="mr-4"
             @click="submit"
             :disabled="!valid"

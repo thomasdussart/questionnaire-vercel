@@ -19,10 +19,18 @@ declare module 'vue-router/auto-routes' {
    */
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
+    '/Age': RouteRecordInfo<'/Age', '/Age', Record<never, never>, Record<never, never>>,
+    '/Categories': RouteRecordInfo<'/Categories', '/Categories', Record<never, never>, Record<never, never>>,
+    '/Consommation': RouteRecordInfo<'/Consommation', '/Consommation', Record<never, never>, Record<never, never>>,
     '/Culture': RouteRecordInfo<'/Culture', '/Culture', Record<never, never>, Record<never, never>>,
+    '/Ecole': RouteRecordInfo<'/Ecole', '/Ecole', Record<never, never>, Record<never, never>>,
+    '/Ecrans': RouteRecordInfo<'/Ecrans', '/Ecrans', Record<never, never>, Record<never, never>>,
     '/Environnement': RouteRecordInfo<'/Environnement', '/Environnement', Record<never, never>, Record<never, never>>,
+    '/Genre': RouteRecordInfo<'/Genre', '/Genre', Record<never, never>, Record<never, never>>,
     '/Mobilite': RouteRecordInfo<'/Mobilite', '/Mobilite', Record<never, never>, Record<never, never>>,
+    '/Sante': RouteRecordInfo<'/Sante', '/Sante', Record<never, never>, Record<never, never>>,
     '/Sport': RouteRecordInfo<'/Sport', '/Sport', Record<never, never>, Record<never, never>>,
     '/Stats': RouteRecordInfo<'/Stats', '/Stats', Record<never, never>, Record<never, never>>,
+    '/Vie': RouteRecordInfo<'/Vie', '/Vie', Record<never, never>, Record<never, never>>,
   }
 }

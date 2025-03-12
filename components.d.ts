@@ -9,11 +9,14 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     CategoryChart: typeof import('./src/components/CategoryChart.vue')['default']
+    copy: typeof import('./src/components/Homepage copy.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Homepage: typeof import('./src/components/Homepage.vue')['default']
+    InfosGathering: typeof import('./src/components/InfosGathering.vue')['default']
     Login: typeof import('./src/components/Login.vue')['default']
-    Mobilite: typeof import('./src/components/Mobilite.vue')['default']
+    RandomColor: typeof import('./src/components/RandomColor.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    WhoAreYou: typeof import('./src/components/WhoAreYou.vue')['default']
   }
 }

@@ -1,14 +1,7 @@
 <template>
   <v-container class="fill-height">
-    <v-responsive
-      class="align-centerfill-height mx-auto"
-      max-width="900"
-    >
-      <v-img
-        class="mb-4"
-        height="150"
-        src="@/assets/logo.png"
-      />
+    <v-responsive class="align-centerfill-height mx-auto" max-width="900">
+      <v-img class="mb-4" height="150" src="@/assets/logo.png" />
 
       <div class="text-center">
         <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
@@ -22,7 +15,7 @@
         <v-col cols="12">
           <v-card
             class="py-4"
-            color="surface-variant"
+            :color="randomColor()"
             image="https://cdn.vuetifyjs.com/docs/images/one/create/feature.png"
             prepend-icon="mdi-rocket-launch-outline"
             rounded="lg"
@@ -38,7 +31,9 @@
 
             <template #subtitle>
               <div class="text-subtitle-1">
-                Replace this page by removing <v-kbd>{{ `<HelloWorld />` }}</v-kbd> in <v-kbd>pages/index.vue</v-kbd>.
+                Replace this page by removing
+                <v-kbd>{{ `<HelloWorld />` }}</v-kbd> in
+                <v-kbd>pages/index.vue</v-kbd>.
               </div>
             </template>
 
@@ -56,7 +51,7 @@
           <v-card
             append-icon="mdi-open-in-new"
             class="py-4"
-            color="surface-variant"
+            :color="randomColor()"
             href="https://vuetifyjs.com/"
             prepend-icon="mdi-text-box-outline"
             rel="noopener noreferrer"
@@ -80,7 +75,7 @@
           <v-card
             append-icon="mdi-open-in-new"
             class="py-4"
-            color="surface-variant"
+            :color="randomColor()"
             href="https://vuetifyjs.com/introduction/why-vuetify/#feature-guides"
             prepend-icon="mdi-star-circle-outline"
             rel="noopener noreferrer"
@@ -104,7 +99,7 @@
           <v-card
             append-icon="mdi-open-in-new"
             class="py-4"
-            color="surface-variant"
+            :color="randomColor()"
             href="https://vuetifyjs.com/components/all"
             prepend-icon="mdi-widgets-outline"
             rel="noopener noreferrer"
@@ -128,7 +123,7 @@
           <v-card
             append-icon="mdi-open-in-new"
             class="py-4"
-            color="surface-variant"
+            :color="randomColor()"
             href="https://discord.vuetifyjs.com"
             prepend-icon="mdi-account-group-outline"
             rel="noopener noreferrer"
@@ -153,5 +148,5 @@
 </template>
 
 <script setup>
-  //
+//
 </script>

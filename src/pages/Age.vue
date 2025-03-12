@@ -4,23 +4,39 @@
       <div class="centered-row">
         <v-card
           :color="randomColor()"
-          dark
+          v-for="age in ageArray"
+          :key="age"
           class="card d-flex justify-center align-center text-white"
-          @click="handleStart()"
+          @click="handleNext(age)"
         >
-          Commencer
+          {{ age }}
         </v-card>
       </div>
     </div>
   </v-responsive>
 </template>
+
 <script setup>
-import { randomColor } from "./RandomColor.vue";
-// Fonction pour rediriger vers la catégorie choisie
-const handleStart = () => {
-  window.location.href = "/genre";
+import { randomColor } from "../components/RandomColor.vue";
+
+const ageArray = [
+  "-12 ans",
+  "12 ans",
+  "13 ans",
+  "14 ans",
+  "15 ans",
+  "16 ans",
+  "17 ans",
+  "18 ans",
+  "+18 ans",
+];
+
+const handleNext = (age) => {
+  localStorage.setItem("age", age);
+  window.location.href = "/ecole";
 };
 </script>
+
 <style>
 .categories {
   display: flex;
@@ -35,9 +51,10 @@ const handleStart = () => {
 
 .centered-row {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 20px;
-  margin-bottom: 20px;
+  padding: 20px;
 }
 
 .card {

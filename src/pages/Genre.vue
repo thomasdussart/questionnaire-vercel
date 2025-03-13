@@ -3,7 +3,7 @@
     <div class="categories">
       <div class="centered-row">
         <v-card
-          :color="randomColor()"
+          color="#448AFF"
           dark
           class="card d-flex justify-center align-center text-white"
           @click="handleNext(fille)"
@@ -11,7 +11,7 @@
           {{ fille }}
         </v-card>
         <v-card
-          :color="randomColor()"
+          color="#4CAF50"
           dark
           class="card d-flex justify-center align-center text-white"
           @click="handleNext(garcon)"
@@ -20,7 +20,7 @@
         </v-card>
 
         <v-card
-          :color="randomColor()"
+          color="#ffc823"
           dark
           class="card d-flex justify-center align-center text-white"
           @click="handleNext(autre)"
@@ -32,8 +32,6 @@
   </v-responsive>
 </template>
 <script setup>
-import { randomColor } from "../components/RandomColor.vue";
-
 let fille = "Fille";
 let garcon = "Garçon";
 let autre = "Autre";

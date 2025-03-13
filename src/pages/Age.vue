@@ -2,6 +2,7 @@
   <v-responsive>
     <div class="categories">
       <div class="centered-row">
+        <h4 class="questions"></h4>
         <v-card
           :color="randomColor()"
           v-for="age in ageArray"
@@ -53,7 +54,7 @@ const handleNext = (age) => {
 
 .centered-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;

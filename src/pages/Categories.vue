@@ -2,6 +2,10 @@
   <v-responsive>
     <div class="categories">
       <div class="centered-row">
+        <h4>
+          Classe par ordre de priorité les domaines ci-dessous, de celui qui te
+          préoccupe le plus à celui qui te préoccupe le moins dans ta vie
+        </h4>
         <v-card
           v-for="category in categories"
           :key="category"
@@ -138,6 +142,7 @@ const handleNext = async () => {
   justify-content: space-between;
   gap: 20px;
   margin-bottom: 20px;
+  padding: 20px;
 }
 
 .card {

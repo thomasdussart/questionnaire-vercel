@@ -8,3 +8,12 @@
 // @use 'vuetify/settings' with (
 //   $color-pack: false
 // );
+
+h4 {
+  margin: 20px;
+  text-align: center;
+}
+
+h4.title::after {
+  content: "Clique sur le ou les domaines pour lesquel(s) tu te sens préoccupé(e) dans ta vie.";
+}

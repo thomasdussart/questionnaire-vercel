@@ -1,6 +1,7 @@
 <template>
   <v-responsive>
     <div class="container">
+      <h4 class="title"></h4>
       <div class="questions">
         <div
           class="question"
@@ -9,7 +10,7 @@
         >
           <v-card
             class="card d-flex justify-center align-center text-white text-fit"
-            :color="randomColor()"
+            :color="getColor(index)"
             dark
             @click="toggleSelection(index)"
           >
@@ -54,6 +55,17 @@ const toggleSelection = (index) => {
 
 const isSelected = (index) => {
   return selectedAnswers.value.includes(questions[index]);
+};
+
+const colors = [
+  "#FF5252", // rose
+  "#448AFF", // bleu
+  "#4CAF50", // vert
+  "#ffc823", // jaune
+];
+
+const getColor = (index) => {
+  return colors[index % colors.length];
 };
 
 let chosenCatString = localStorage.getItem("categories");
@@ -143,5 +155,18 @@ const handleNext = async () => {
   content: "\2714 \fe0e";
   color: #000;
   margin-right: 20px;
+}
+
+.next {
+  margin-top: 20px;
+}
+
+.v-btn {
+  width: 10vw;
+  padding: 25px;
+  background-color: #ff5252;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

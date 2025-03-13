@@ -71,10 +71,13 @@ const handleNext = async () => {
   const ecole = localStorage.getItem("ecole");
   const annee = localStorage.getItem("annee");
 
-  await axios.post("http://localhost:1337/questions", {
-    category: "Bien-être et santé",
-    answers: selectedAnswers.value,
-  });
+  await axios.post(
+    "https://questionnaire-jeunesse-server.vercel.app/questions",
+    {
+      category: "Bien-être et santé",
+      answers: selectedAnswers.value,
+    }
+  );
 
   switch (chosenCategories[0]) {
     case "Vie relationnelle":
@@ -96,12 +99,15 @@ const handleNext = async () => {
       window.location.href = "/ecrans";
       break;
     default:
-      await axios.post("http://localhost:1337/utilisateurs/create", {
-        genre: genre,
-        age: age,
-        ecole: ecole,
-        annee: annee,
-      });
+      await axios.post(
+        "https://questionnaire-jeunesse-server.vercel.app/utilisateurs/create",
+        {
+          genre: genre,
+          age: age,
+          ecole: ecole,
+          annee: annee,
+        }
+      );
       window.location.href = "/";
       break;
   }

@@ -80,9 +80,12 @@ const handleNext = async () => {
     return;
   }
 
-  await axios.post("http://localhost:1337/new-categories", {
-    categories: selectedCategories.value,
-  });
+  await axios.post(
+    "https://questionnaire-jeunesse-server.vercel.app/new-categories",
+    {
+      categories: selectedCategories.value,
+    }
+  );
 
   switch (selectedCategories.value[0]) {
     case "Vie relationnelle":

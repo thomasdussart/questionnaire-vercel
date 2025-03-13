@@ -70,10 +70,13 @@ const handleNext = async () => {
   const ecole = localStorage.getItem("ecole");
   const annee = localStorage.getItem("annee");
 
-  await axios.post("http://localhost:1337/questions", {
-    category: "Vie relationnelle",
-    answers: selectedAnswers.value,
-  });
+  await axios.post(
+    "https://questionnaire-jeunesse-server.vercel.app/questions",
+    {
+      category: "Vie relationnelle",
+      answers: selectedAnswers.value,
+    }
+  );
 
   switch (chosenCategories[0]) {
     case "Consommation et dépendance":
@@ -95,12 +98,15 @@ const handleNext = async () => {
       window.location.href = "/ecrans";
       break;
     default:
-      await axios.post("http://localhost:1337/utilisateurs/create", {
-        genre: genre,
-        age: age,
-        ecole: ecole,
-        annee: annee,
-      });
+      await axios.post(
+        "https://questionnaire-jeunesse-server.vercel.app/utilisateurs/create",
+        {
+          genre: genre,
+          age: age,
+          ecole: ecole,
+          annee: annee,
+        }
+      );
 
       window.location.href = "/";
       break;

@@ -3,8 +3,8 @@
     <div class="categories">
       <div class="centered-row">
         <v-card
-          :color="randomColor()"
-          v-for="annee in anneeArray"
+          v-for="(annee, index) in anneeArray"
+          :color="getColor(index)"
           :key="annee"
           class="card d-flex justify-center align-center text-white"
           @click="handleNext(annee)"
@@ -29,6 +29,17 @@ const anneeArray = [
   "7ème secondaire",
   "Différenciée",
 ];
+
+const colors = [
+  "#FF5252", // rose
+  "#448AFF", // bleu
+  "#4CAF50", // vert
+  "#ffc823", // jaune
+];
+
+const getColor = (index) => {
+  return colors[index % colors.length];
+};
 
 const handleNext = (annee) => {
   const parsedAnnee = annee.replace(/secondaire/g, "");

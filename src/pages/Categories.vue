@@ -7,9 +7,9 @@
           préoccupe le plus à celui qui te préoccupe le moins dans ta vie
         </h4>
         <v-card
-          v-for="category in categories"
+          v-for="(category, index) in categories"
           :key="category"
-          :color="randomColor()"
+          :color="getColor(index)"
           dark
           class="card d-flex justify-center align-center text-white"
           @click="toggleCategory(category)"
@@ -72,6 +72,17 @@ const isSelected = (category) => {
 // Retourne le numéro d'ordre de la catégorie sélectionnée
 const getCategoryNumber = (category) => {
   return selectedCategories.value.indexOf(category) + 1;
+};
+
+const colors = [
+  "#FF5252", // rose
+  "#448AFF", // bleu
+  "#4CAF50", // vert
+  "#ffc823", // jaune
+];
+
+const getColor = (index) => {
+  return colors[index % colors.length];
 };
 
 const handleNext = async () => {

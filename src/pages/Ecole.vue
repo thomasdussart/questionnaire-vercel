@@ -3,8 +3,8 @@
     <div class="categories">
       <div class="centered-row">
         <v-card
-          :color="randomColor()"
-          v-for="ecole in ecoleArray"
+          v-for="(ecole, index) in ecoleArray"
+          :color="getColor(index)"
           :key="ecole"
           class="card d-flex justify-center flex-wrap align-center text-white"
           @click="handleNext(ecole)"
@@ -29,12 +29,18 @@ const ecoleArray = [
   "Autre",
 ];
 
+const colors = [
+  "#FF5252", // rose
+  "#448AFF", // bleu
+  "#4CAF50", // vert
+  "#ffc823", // jaune
+];
+
+const getColor = (index) => {
+  return colors[index % colors.length];
+};
+
 const handleNext = (ecole) => {
-  // Envoi des réponses
-  //   axios.post("http://localhost:3000/answers", {
-  //     answers: [],
-  //   });
-  // Redirection vers la prochaine question
   localStorage.setItem("ecole", ecole);
   window.location.href = "/annee";
 };

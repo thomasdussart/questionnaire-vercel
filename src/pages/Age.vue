@@ -4,8 +4,8 @@
       <div class="centered-row">
         <h4 class="questions"></h4>
         <v-card
-          :color="randomColor()"
-          v-for="age in ageArray"
+          v-for="(age, index) in ageArray"
+          :color="getColor(index)"
           :key="age"
           class="card d-flex justify-center align-center text-white"
           @click="handleNext(age)"
@@ -37,6 +37,17 @@ const handleNext = (age) => {
   console.log(parsedAge);
   localStorage.setItem("age", parsedAge);
   window.location.href = "/ecole";
+};
+
+const colors = [
+  "#FF5252", // rose
+  "#448AFF", // bleu
+  "#4CAF50", // vert
+  "#ffc823", // jaune
+];
+
+const getColor = (index) => {
+  return colors[index % colors.length];
 };
 </script>
 

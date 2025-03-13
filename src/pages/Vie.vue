@@ -2,7 +2,6 @@
   <v-responsive>
     <div class="container">
       <div class="questions">
-        <!-- Boucle sur les questions -->
         <div
           class="question"
           v-for="(question, index) in questions"
@@ -14,7 +13,6 @@
             dark
             @click="toggleSelection(index)"
           >
-            <!-- Affiche le "V" si la question est sélectionnée -->
             <span v-if="isSelected(index)" class="selected-mark"></span>
             {{ question }}
           </v-card>
@@ -66,45 +64,47 @@ chosenCatString = chosenCatString
   .replace(/[\[\]"]/g, "");
 let chosenCategories = chosenCatString.split(",");
 
-const handleNext = () => {
-  // Affiche les questions sélectionnées dans la console
-  console.log(selectedAnswers.value);
+const handleNext = async () => {
+  const age = localStorage.getItem("age");
+  const genre = localStorage.getItem("genre");
+  const ecole = localStorage.getItem("ecole");
+  const annee = localStorage.getItem("annee");
 
-  axios.post("http://localhost:3000/answers", {
+  await axios.post("http://localhost:1337/questions", {
+    category: "Vie relationnelle",
     answers: selectedAnswers.value,
   });
 
-  // Vous pouvez ensuite envoyer ces réponses à votre serveur ou effectuer d'autres traitements.
-  // Exemple de redirection en fonction de la catégorie choisie :
-  // switch (chosenCategories[0]) {
-  //   case "Vie relationnelle":
-  //     chosenCategories = localStorage.getItem("categories");
-  //     chosenCategories.shift();
-  //     localStorage.setItem("categories", JSON.stringify(chosenCategories));
-  //     window.location.href = "/vie";
-  //     break;
-  //   case "Consommation et dépendance":
-  //     chosenCategories = JSON.parse(localStorage.getItem("categories"));
-  //     chosenCategories.shift();
-  //     localStorage.setItem("categories", JSON.stringify(chosenCategories));
-  //     window.location.href = "/consommation";
-  //     break;
-  //   case "Bien-être et santé":
-  //     chosenCategories = JSON.parse(localStorage.getItem("categories"));
-  //     chosenCategories.shift();
-  //     localStorage.setItem("categories", JSON.stringify(chosenCategories));
-  //     window.location.href = "/sante";
-  //     break;
-  //   case "Ecrans":
-  //     chosenCategories = JSON.parse(localStorage.getItem("categories"));
-  //     chosenCategories.shift();
-  //     localStorage.setItem("categories", JSON.stringify(chosenCategories));
-  //     window.location.href = "/ecrans";
-  //     break;
-  //   default:
-  //     window.location.href = "/";
-  //     break;
-  // }
+  switch (chosenCategories[0]) {
+    case "Consommation et dépendance":
+      chosenCategories = JSON.parse(localStorage.getItem("categories"));
+      chosenCategories.shift();
+      localStorage.setItem("categories", JSON.stringify(chosenCategories));
+      window.location.href = "/consommation";
+      break;
+    case "Bien-être et santé":
+      chosenCategories = JSON.parse(localStorage.getItem("categories"));
+      chosenCategories.shift();
+      localStorage.setItem("categories", JSON.stringify(chosenCategories));
+      window.location.href = "/sante";
+      break;
+    case "Ecrans":
+      chosenCategories = JSON.parse(localStorage.getItem("categories"));
+      chosenCategories.shift();
+      localStorage.setItem("categories", JSON.stringify(chosenCategories));
+      window.location.href = "/ecrans";
+      break;
+    default:
+      await axios.post("http://localhost:1337/utilisateurs/create", {
+        genre: genre,
+        age: age,
+        ecole: ecole,
+        annee: annee,
+      });
+
+      window.location.href = "/";
+      break;
+  }
 };
 </script>
 

@@ -86,24 +86,28 @@ const handleNext = async () => {
 
   switch (selectedCategories.value[0]) {
     case "Vie relationnelle":
+      console.log("Vie relationnelle");
       chosenCategories = JSON.parse(localStorage.getItem("categories"));
       chosenCategories.shift();
       localStorage.setItem("categories", JSON.stringify(chosenCategories));
       window.location.href = "/vie";
       break;
     case "Consommation et dépendance":
+      console.log("Consommation et dépendance");
       chosenCategories = JSON.parse(localStorage.getItem("categories"));
       chosenCategories.shift();
       localStorage.setItem("categories", JSON.stringify(chosenCategories));
       window.location.href = "/consommation";
       break;
     case "Bien-être et santé":
+      console.log("Bien-être et santé");
       chosenCategories = JSON.parse(localStorage.getItem("categories"));
       chosenCategories.shift();
       localStorage.setItem("categories", JSON.stringify(chosenCategories));
       window.location.href = "/sante";
       break;
     case "Ecrans":
+      console.log("Ecrans");
       chosenCategories = JSON.parse(localStorage.getItem("categories"));
       chosenCategories.shift();
       localStorage.setItem("categories", JSON.stringify(chosenCategories));

@@ -32,7 +32,9 @@ const ageArray = [
 ];
 
 const handleNext = (age) => {
-  localStorage.setItem("age", age);
+  const parsedAge = age.replace(/ans/g, "");
+  console.log(parsedAge);
+  localStorage.setItem("age", parsedAge);
   window.location.href = "/ecole";
 };
 </script>

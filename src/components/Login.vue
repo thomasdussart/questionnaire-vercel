@@ -27,13 +27,7 @@
           ></v-text-field>
 
           <!-- Submit Button -->
-          <v-btn
-            :color="randomColor()"
-            class="mr-4"
-            @click="submit"
-            :disabled="!valid"
-            block
-          >
+          <v-btn class="mr-4" @click="submit" :disabled="!valid" block>
             Login
           </v-btn>
         </v-form>
@@ -49,6 +43,7 @@
 <script>
 import Swal from "sweetalert2";
 import axios from "axios";
+
 export default {
   data() {
     return {

@@ -36,7 +36,7 @@ const handleNext = (ecole) => {
   //   });
   // Redirection vers la prochaine question
   localStorage.setItem("ecole", ecole);
-  window.location.href = "/categories";
+  window.location.href = "/annee";
 };
 </script>
 <style>

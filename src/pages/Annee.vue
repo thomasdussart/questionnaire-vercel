@@ -4,32 +4,40 @@
       <div class="centered-row">
         <v-card
           :color="randomColor()"
-          dark
+          v-for="annee in anneeArray"
+          :key="annee"
           class="card d-flex justify-center align-center text-white"
-          @click="handleStart()"
+          @click="handleNext(annee)"
         >
-          Commencer
+          {{ annee }}
         </v-card>
       </div>
     </div>
   </v-responsive>
 </template>
-<script setup>
-import { randomColor } from "./RandomColor.vue";
-import { onMounted } from "vue";
 
-onMounted(() => {
-  localStorage.removeItem("categories");
-  localStorage.removeItem("genre");
-  localStorage.removeItem("age");
-  localStorage.removeItem("ecole");
-  localStorage.removeItem("annee");
-});
-// Fonction pour rediriger vers la catégorie choisie
-const handleStart = () => {
-  window.location.href = "/genre";
+<script setup>
+import { randomColor } from "../components/RandomColor.vue";
+
+const anneeArray = [
+  "1ère secondaire",
+  "2ème secondaire",
+  "3ème secondaire",
+  "4ème secondaire",
+  "5ème secondaire",
+  "6ème secondaire",
+  "7ème secondaire",
+  "Différenciée",
+];
+
+const handleNext = (annee) => {
+  const parsedAnnee = annee.replace(/secondaire/g, "");
+  console.log(parsedAnnee);
+  localStorage.setItem("annee", parsedAnnee);
+  window.location.href = "/categories";
 };
 </script>
+
 <style>
 .categories {
   display: flex;
@@ -44,9 +52,10 @@ const handleStart = () => {
 
 .centered-row {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 20px;
-  margin-bottom: 20px;
+  padding: 20px;
 }
 
 .card {

@@ -53,7 +53,7 @@ const handleNext = (genre) => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
   padding: 10px;
   font-family: "Roboto", sans-serif;
   font-size: 3rem;
@@ -64,6 +64,7 @@ const handleNext = (genre) => {
   justify-content: center;
   gap: 20px;
   margin-bottom: 20px;
+  max-width: 80%;
 }
 
 .card {

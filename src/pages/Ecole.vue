@@ -66,10 +66,9 @@ const handleNext = (ecole) => {
 }
 
 .card {
-  width: 400px;
+  width: 350px;
   height: 200px;
   border-radius: 20px;
-  padding: 30px;
   text-align: center;
 }
 </style>

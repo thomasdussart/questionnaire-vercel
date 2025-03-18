@@ -28,7 +28,7 @@
         </v-card>
       </div>
       <div class="nextBtn">
-        <v-btn @click="handleNext">Suivant</v-btn>
+        <v-btn size="x-large" @click="handleNext">Suivant</v-btn>
       </div>
     </div>
   </v-responsive>
@@ -152,7 +152,7 @@ const handleNext = async () => {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   padding: 20px;
 }
 
@@ -162,9 +162,7 @@ const handleNext = async () => {
   width: 400px;
   height: 200px;
   border-radius: 20px;
-  padding: 30px;
   text-align: center;
-  overflow: hidden;
 }
 
 /* Conteneur qui sera flouté lorsqu'une catégorie est sélectionnée */

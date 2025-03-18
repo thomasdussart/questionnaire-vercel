@@ -70,10 +70,9 @@ const handleNext = (annee) => {
 }
 
 .card {
-  width: 400px;
+  width: 300px;
   height: 200px;
   border-radius: 20px;
-  padding: 30px;
   text-align: center;
 }
 </style>

@@ -18,8 +18,6 @@
 </template>
 
 <script setup>
-import { randomColor } from "../components/RandomColor.vue";
-
 const ageArray = [
   "-12 ans",
   "12 ans",
@@ -66,16 +64,16 @@ const getColor = (index) => {
 .centered-row {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
 }
 
 .card {
-  width: 400px;
+  width: 200px;
   height: 200px;
   border-radius: 20px;
-  padding: 30px;
   text-align: center;
 }
 </style>

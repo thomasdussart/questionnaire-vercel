@@ -56,7 +56,16 @@ const isSelected = (index) => {
   return selectedAnswers.value.includes(questions[index]);
 };
 
-const colors = ["#07C8F9", "#09A6F3", "#0A85ED", "#0C63E7"];
+const colors = [
+  "#3B82F6", // Bleu intense (point de départ stable)
+  "#4C8EF7", // Bleu doux intermédiaire
+  "#5EA5FA", // Bleu ciel équilibré
+  "#6FBDFB", // Bleu très clair, lumineux
+  "#5ACFEA", // Cyan doux intermédiaire
+  "#4BC3D2", // Cyan-turquoise doux, moins saturé
+  "#3EB8C4", // Turquoise doux équilibré
+  "#32AFC2", // Bleu-turquoise légèrement plus profond (point d'arrivée stable)
+];
 
 const getColor = (index) => {
   return colors[index % colors.length];

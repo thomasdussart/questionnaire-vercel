@@ -3,7 +3,7 @@
     <div class="categories">
       <div class="centered-row">
         <v-card
-          :color="randomColor()"
+          :color="colors[0]"
           dark
           class="card d-flex justify-center align-center text-white"
           @click="handleStart()"
@@ -15,8 +15,18 @@
   </v-responsive>
 </template>
 <script setup>
-import { randomColor } from "./RandomColor.vue";
 import { onMounted } from "vue";
+
+const colors = [
+  "#3B82F6", // Bleu intense (point de départ stable)
+  "#4C8EF7", // Bleu doux intermédiaire
+  "#5EA5FA", // Bleu ciel équilibré
+  "#6FBDFB", // Bleu très clair, lumineux
+  "#5ACFEA", // Cyan doux intermédiaire
+  "#4BC3D2", // Cyan-turquoise doux, moins saturé
+  "#3EB8C4", // Turquoise doux équilibré
+  "#32AFC2", // Bleu-turquoise légèrement plus profond (point d'arrivée stable)
+];
 
 onMounted(() => {
   localStorage.removeItem("categories");

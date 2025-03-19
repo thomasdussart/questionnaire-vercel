@@ -1,11 +1,13 @@
 <script>
 const randomColor = () => {
   const colors = [
-    "#FF5252", //rose
-    "#448AFF", //bleu
-    "#4CAF50", //vert
-    "#ffc823", //jaune
+    "#93C5FD", // Bleu pastel
+    "#A5B4FC", // Indigo doux
+    "#C4B5FD", // Lavande doux
+    "#D8B4FE", // Mauve pastel
+    "#F0ABFC", // Rose doux
   ];
+
   const randomIndex = Math.floor(Math.random() * colors.length);
   return colors[randomIndex];
 };

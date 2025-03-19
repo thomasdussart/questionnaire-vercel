@@ -28,7 +28,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { randomColor } from "../components/RandomColor.vue";
+import Swal from "sweetalert2";
 import axios from "axios";
 
 // Tableau réactif pour stocker le texte des questions sélectionnées
@@ -121,7 +121,13 @@ const handleNext = async () => {
           annee: annee,
         }
       );
-      window.location.href = "/";
+      Swal.fire({
+        title: "Merci d'avoir répondu à toutes les questions!",
+        icon: "success",
+        confirmButtonText: "Fermer",
+      }).then(() => {
+        window.location.href = "/";
+      });
       break;
   }
 };
@@ -168,7 +174,7 @@ const handleNext = async () => {
 .v-btn {
   width: 10vw;
   padding: 25px;
-  background-color: #ff5252;
+  background-color: #3b82f6;
   display: flex;
   justify-content: center;
   align-items: center;

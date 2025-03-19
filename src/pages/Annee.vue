@@ -30,12 +30,7 @@ const anneeArray = [
   "Différenciée",
 ];
 
-const colors = [
-  "#FF5252", // rose
-  "#448AFF", // bleu
-  "#4CAF50", // vert
-  "#ffc823", // jaune
-];
+const colors = ["#07C8F9", "#09A6F3", "#0A85ED", "#0C63E7"];
 
 const getColor = (index) => {
   return colors[index % colors.length];

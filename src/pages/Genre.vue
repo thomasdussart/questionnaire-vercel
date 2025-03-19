@@ -3,7 +3,7 @@
     <div class="categories">
       <div class="centered-row">
         <v-card
-          color="#448AFF"
+          color="#07C8F9"
           dark
           class="card d-flex justify-center align-center text-white"
           @click="handleNext(fille)"
@@ -11,7 +11,7 @@
           {{ fille }}
         </v-card>
         <v-card
-          color="#4CAF50"
+          color="#09A6F3"
           dark
           class="card d-flex justify-center align-center text-white"
           @click="handleNext(garcon)"
@@ -20,7 +20,7 @@
         </v-card>
 
         <v-card
-          color="#ffc823"
+          color="#0A85ED"
           dark
           class="card d-flex justify-center align-center text-white"
           @click="handleNext(autre)"
@@ -35,6 +35,8 @@
 let fille = "Fille";
 let garcon = "Garçon";
 let autre = "Autre";
+
+const colors = ["#07C8F9", "#09A6F3", "#0A85ED", "#0C63E7"];
 
 // Fonction pour rediriger vers la catégorie choisie
 const handleNext = (genre) => {

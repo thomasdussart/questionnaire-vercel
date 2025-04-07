@@ -54,7 +54,7 @@ export default {
       console.log("hCaptcha token:", token);
     },
     enterApp() {
-      this.$router.push("/"); // Par exemple
+      window.location.href = "/";
     },
   },
 };

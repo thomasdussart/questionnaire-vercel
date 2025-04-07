@@ -20,6 +20,10 @@
 <script setup>
 import { randomColor } from "@/components/RandomColor.vue";
 
+if (!localStorage.getItem("token")) {
+  window.location.href = "/login";
+}
+
 const ageArray = [
   "-12 ans",
   "12 ans",

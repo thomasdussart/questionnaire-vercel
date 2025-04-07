@@ -2,90 +2,60 @@
   <v-container class="fill-height d-flex justify-center align-center">
     <v-card class="pa-5" max-width="400">
       <v-card-title class="justify-center">
-        <h3>Login</h3>
+        <h3>Accès sécurisé</h3>
       </v-card-title>
 
       <v-card-text>
-        <v-form ref="form" v-model="valid" lazy-validation>
-          <!-- Username Input -->
-          <v-text-field
-            v-model="username"
-            label="Username"
-            :rules="usernameRules"
-            required
-            outlined
-          ></v-text-field>
+        <!-- hCaptcha Widget -->
+        <div id="hcaptcha-container"></div>
 
-          <!-- Password Input -->
-          <v-text-field
-            v-model="password"
-            label="Password"
-            type="password"
-            :rules="passwordRules"
-            required
-            outlined
-          ></v-text-field>
-
-          <!-- Submit Button -->
-          <v-btn class="mr-4" @click="submit" :disabled="!valid" block>
-            Login
-          </v-btn>
-        </v-form>
+        <v-btn
+          class="mt-4"
+          :disabled="!captchaValidated"
+          color="primary"
+          block
+          @click="enterApp"
+        >
+          Entrer
+        </v-btn>
       </v-card-text>
-
-      <v-card-actions class="justify-center">
-        <v-btn variant="text" @click="forgotPassword">Forgot Password?</v-btn>
-      </v-card-actions>
     </v-card>
   </v-container>
 </template>
 
 <script>
-import Swal from "sweetalert2";
-import axios from "axios";
-
 export default {
   data() {
     return {
-      valid: false,
-      username: "",
-      password: "",
-      usernameRules: [(v) => !!v || "Username is required"],
-      passwordRules: [(v) => !!v || "Password is required"],
+      captchaValidated: false,
+    };
+  },
+  mounted() {
+    // Charger le script hCaptcha
+    const script = document.createElement("script");
+    script.src =
+      "https://js.hcaptcha.com/1/api.js?onload=hcaptchaOnLoadCallback&render=explicit";
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+
+    // Callback global pour hCaptcha
+    window.hcaptchaOnLoadCallback = () => {
+      window.hcaptcha.render("hcaptcha-container", {
+        sitekey: "ea480786-2294-4d9e-a9cc-8472ce720756", // 🔁 Remplace par ta vraie clé site
+        callback: this.onCaptchaSuccess,
+      });
     };
   },
   methods: {
-    submit() {
-      const form = this.$refs.form;
-      if (form.validate()) {
-        // Implement your form submission logic (e.g., API call)
-        axios
-          .post("https://sondage-server.vercel.app/login", {
-            username: this.username,
-            password: this.password,
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-            },
-          })
-          .then((response) => {
-            localStorage.setItem("token", response.data.token);
-            window.location.reload();
-          })
-          .catch((error) => {
-            Swal.fire("Error!", error.response.data.message, "error");
-          });
-      }
+    onCaptchaSuccess(token) {
+      this.captchaValidated = true;
+      // Tu peux envoyer le token à ton backend ici si tu veux le vérifier
+      console.log("hCaptcha token:", token);
     },
-    forgotPassword() {
-      // Implement your password recovery logic
+    enterApp() {
+      this.$router.push("/"); // Par exemple
     },
   },
 };
 </script>
-
-<style scoped>
-.v-btn {
-  margin-top: 10px;
-}
-</style>

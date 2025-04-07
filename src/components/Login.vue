@@ -50,7 +50,7 @@ export default {
   methods: {
     onCaptchaSuccess(token) {
       this.captchaValidated = true;
-      localStorage("token", token);
+      window.localStorage("token", token);
       console.log("hCaptcha token:", token);
     },
     enterApp() {

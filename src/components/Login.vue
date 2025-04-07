@@ -49,11 +49,11 @@ export default {
   },
   methods: {
     onCaptchaSuccess(token) {
+      localStorage.setItem("token", token);
       this.captchaValidated = true;
       console.log("hCaptcha token:", token);
     },
     enterApp() {
-      window.localStorage("token", token);
       this.$router.push("/"); // Par exemple
     },
   },
